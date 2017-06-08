@@ -1,33 +1,45 @@
 // Scripts
 
 $.simpleWeather({
-  location: 'Spokane',
-  unit: 'f',
-  success: function(weather){
-    
-    //Show Weather
-     console.log(weather.city);
-     console.log(weather.region);
-    
-    console.log(weather.temp);
-    console.log(weather.humidity);
-    console.log(weather.currently);
-    
-    console.log(weather);
-    
-    // Display Weather
-    
-    $('.image img').attr( 'src', weather.image );
-    
-    $('.city').text(weather.city );
-        $('.state').text(weather.region );
-        $('.temp').text(weather.temp );
-        $('.humidity').text(weather.humidity );
-        $('.current').text(weather.currently );
-  },
+    location: 'Spokane',
+    unit: 'f',
+    success: function(weather) {
+      // Entire weather object
+      console.log(weather.code);
+      
+      // Display Data
+      $('.temp').text(weather.temp);
+      $('.city').text(weather.city);
+     
+      $('img').attr('src', weather.image);
+      
+      // Change Icon
+      $('i').attr('class', 'icon-' + weather.code )
+      
+      
+      if ( weather.code >= 26 && weather.code <= 30 ) {
+        
+        console.log('CLOUDY');
+        
+      }
+      
+      if ( weather.temp >= 80 ) {
+        
+        $('body').addClass('hot');
+        
+      }
+      
+      // Condition Code
+      // Reference Condition Codes
+      // https://developer.yahoo.com/weather/documentation.html#codes
+      console.log(weather.code);
+      
+    },
+    error: function(error) {
+      // Show if weather cannot be retreived
+      console.log('Look outside.');
+    }
   
-  error: function(error){
-  console.log('Go look outside');
-  }
-  
-});
+  });
+
+

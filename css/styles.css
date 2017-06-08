@@ -1,2 +1,12 @@
+/* Styling */
+/* line 2, /Users/gsaiki/Documents/GitHub/p4-weather-app/css/styles.scss */
+.hot {
+  background: yellow; }
+
+/* line 6, /Users/gsaiki/Documents/GitHub/p4-weather-app/css/styles.scss */
+i {
+  color: yellow;
+  font-size: 12em;
+  text-shadow: 0 0 10px red; }
 
 /*# sourceMappingURL=styles.css.map */
